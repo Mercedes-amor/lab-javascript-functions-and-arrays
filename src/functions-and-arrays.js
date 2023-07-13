@@ -1,24 +1,82 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1,num2) {
+ 
+  return Math.max(num1, num2)
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let bigWord ="";
+    
+  if (words.length === 0) {
+      return null
+    }
+  
+    for (let i = 0; i < words.length; i++) {
+
+
+    if(bigWord.length < words[i].length) {
+      bigWord = words[i];
+      console.log (words);
+    }
+     
+  }
+    return bigWord
+
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let total = 0
+    for (let i = 0; i < numbers.length; i++) {
+      total += numbers[i]
+    }
+    return total
+}
 
 
 
-// Iteration #3.1 Bonus:
-function sum() {}
+// Iteration #3.2 Bonus:
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArr) {
+
+  let total = 0
+  for (let i = 0; i < mixedArr.length; i++) {
+
+      if (typeof mixedArr[i] === "array" || typeof mixedArr[i] === "object") {
+      throw new Error('error')
+      }  
+    
+      if (typeof mixedArr[i] === "number") {
+
+         total += mixedArr[i];
+      }
+      
+      if (typeof mixedArr[i] === "string") {
+
+        total += mixedArr[i].length;
+     }
+     if (typeof mixedArr[i] === "boolean" && mixedArr[i] === true) {
+
+        total += 1;
+    } 
+     
+  }
+  
+  return total
+
+
+}
 
 
 
@@ -26,16 +84,70 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+
+function averageNumbers(numbersAvg) {
+
+ let suma = sumNumbers(numbersAvg);
+ 
+ if (numbersAvg.length === 0) {
+  return null
+  }
+  return suma/ numbersAvg.length 
+}
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
 
-// Bonus - Iteration #4.1
-function avg() {}
+let longitud = 0
+  if (wordsArr.length === 0) {
+    return null
+  }
+  
+  for (let i = 0; i < wordsArr.length; i++) {
+    longitud += wordsArr[i].length;   
+}
+  return longitud/wordsArr.length
+}
+
+
+// Bonus - Iteration #4.3
+
+function avg(mixedArr) {
+
+  let total = 0
+  
+  if (mixedArr.length === 0) {
+    return null
+  }
+
+  for (let i = 0; i < mixedArr.length; i++) {
+
+         
+      if (typeof mixedArr[i] === "number") {
+
+         total += mixedArr[i];
+      }
+      
+      if (typeof mixedArr[i] === "string") {
+
+        total += mixedArr[i].length;
+     }
+     if (typeof mixedArr[i] === "boolean" && mixedArr[i] === true) {
+
+        total += 1;
+    } 
+
+         
+  }
+  
+  return total/mixedArr.length
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +164,41 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+
+  let arrayNoDupl = [];
+  
+  if (wordsUnique.length === 0) {
+    return null
+  } 
+  for (let i = 0; i < wordsUnique.length; i++) {
+  
+       if(arrayNoDupl.includes(wordsUnique[i])) {
+        continue;
+       }
+       else {
+        arrayNoDupl.push(wordsUnique[i]);
+       }
+  }
+  return arrayNoDupl  
+  
+}
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(wordsFind, word) {
+    if (wordsFind.length === 0) {
+    return null
+    }
+    if (wordsFind.includes(word)) {
+    return true
+    }
+    return false
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,8 +215,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
 
+  let contador = 0
+
+  for (let i = 0; i < wordsCount.length; i++) {
+
+  if (wordsCount[i] === word) {
+    contador += 1
+  }
+ }
+  return contador
+}
 
 
 // Iteration #8: Bonus
